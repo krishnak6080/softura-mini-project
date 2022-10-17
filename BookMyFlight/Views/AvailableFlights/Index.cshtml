@@ -1,0 +1,138 @@
+﻿@model IEnumerable<BookMyFlight.Models.AvailableFlight>
+
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<h1 class="fli-avail">Flights</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<p>
+    <a asp-action="Login" asp-controller="User">Logout</a>
+</p>
+<div class="index-tab">
+<table class="table" border="1">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FromWhere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WhereTo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Class)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvailableSeates)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromWhere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhereTo)
+                 
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Class)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailableSeates)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Sno">Change</a> |
+                <a asp-action="Details" asp-route-id="@item.Sno">Book</a> |
+                <a asp-action="Delete" asp-route-id="@item.Sno">Not Interested</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>
+<section class="packages" id="packages">
+
+    <h1 class="heading">
+        Our Airline Classes
+    </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="/images/class-e.jpg" alt="">
+            <div class="content">
+                <h3> Economy </h3>
+                
+                <button class="class-btn">Read More</button>
+            </div>
+        </div>
+        <div class="box">
+            <img src="/images/class-b.jpg" alt="">
+            <div class="content">
+                <h3> Business </h3>
+                
+                <button class="class-btn">Read More</button>
+            </div>
+        </div>
+        <div class="box">
+            <img src="/images/class-f.jpeg" alt="">
+            <div class="content">
+                <h3> First Class </h3>
+                
+                <button class="class-btn">Read More</button>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<section class="services" id="services">
+
+    <h1 class="heading">
+        Services
+    </h1>
+
+    <div class="box-container">
+
+
+        <div class="box">
+            <i class="fas fa-utensils"></i>
+            <h3>food and drinks</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+
+        <div class="box">
+            <i class="fas fa-globe-asia"></i>
+            <h3>around the world</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+        <div class="box">
+            <i class="fas fa-plane"></i>
+            <h3>fastest travel</h3>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore commodi earum, quis voluptate exercitationem ut minima itaque iusto ipsum corrupti!</p>
+        </div>
+
+
+    </div>
+
+</section>
